@@ -1,0 +1,57 @@
+.ModalDesign {
+    padding: 5% 10%;
+    width: 500px;
+    min-height: 400px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.ModalDesign label {
+margin-bottom: 1%;
+}
+
+.ModalDesign input {
+    margin-bottom: 2%;
+    border: none;
+    outline: none;
+    box-shadow: inset 0 0 2px 0 gray;
+    border-radius: 3px;
+    padding: 3%;
+}
+.ModalDesign input:focus {
+    border: 1px solid #00DBDE;
+}
+
+.AssignSection {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.CreateTaskButton{
+    text-align: center;
+    width:100%;
+    background-color: #00DBDE;
+    background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+    color: white;
+    padding: 2%;
+    margin-top: 2%;
+    cursor: pointer;
+}
+
+.CreateTaskButton:hover {
+    background-color: #12aeb1;
+    background-image: linear-gradient(90deg, #10b8bb 0%, #d010d3 100%);
+}
+
+.AssignDropDown {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 3%;
+}
+
+.AssignDropDown p {
+    margin-bottom: 1%;
+}

@@ -1,0 +1,8 @@
+.Modal{
+    position: fixed;
+    z-index: 500;
+    background-color: white;
+    transition: all 0.3s ease-out;
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px 0px gray;
+}

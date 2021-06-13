@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import AuthGuard from "./partials/AuthGuard";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Provider } from "react-redux";
+import configureStore from "./redux";
+import { awsConfig } from "./services";
+import Amplify from "aws-amplify";
+
+Amplify.configure(awsConfig.aws_amplify_config);
+
+const store = configureStore();
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <AuthGuard />
+      <ToastContainer position={toast.POSITION.TOP_RIGHT} />
+    </Provider>
   );
 }
 

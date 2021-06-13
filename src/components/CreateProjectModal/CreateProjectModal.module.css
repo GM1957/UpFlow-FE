@@ -1,0 +1,74 @@
+.ModalDesign {
+    padding: 13% 10%;
+    width: 500px;
+    min-height: 400px;
+    overflow: auto;
+}
+
+.InputLabel p{
+    font-weight: bold;
+    margin-bottom: 1%;
+}
+
+.InputBoxs{
+    width: 100%;
+    margin-bottom: 2%;
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 2% 2%;
+    outline: none;
+
+}
+
+.AddProjectPhotoSection {
+    width: 100%;
+    text-align: center;
+    background-color: rgb(241, 238, 238);
+    padding: 2%;
+    cursor: pointer;
+    margin: 4% 0%;
+}
+
+.AddProjectPhotoSection:hover{
+    background-color: rgb(226, 224, 224);
+}
+
+.CreateProjectButton{
+    width: 100%;
+    text-align: center;
+    background-color: #10bbda;
+    padding: 2%;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+
+.CreateProjectButton:hover {
+    background-color: #0faac5;
+}
+
+.SelectedProjectImageArea {
+    display: flex;
+    flex-direction: column;
+}
+
+.SelectedProjectImageArea img {
+    height: 150px;
+    width: 150px;
+    margin: 2% 30%;
+}
+
+.SelectedProjectImageArea p {
+    width: 100%;
+    background-color: rgba(235, 16, 89, 0.952);
+    margin: 2% 0%;
+    text-align: center;
+    color: white;
+    padding: 1%;
+    cursor: pointer;
+}
+
+.CreateProjectDisabled {
+    background-color: #18a1b9de;
+    cursor: not-allowed;
+}

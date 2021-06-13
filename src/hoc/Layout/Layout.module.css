@@ -1,0 +1,12 @@
+.Layout{
+    margin-top: 56px;
+    display: flex;
+}
+
+.LeftBox {
+    flex: 18%;
+}
+
+.RightBox {
+    flex: 82%;
+}
