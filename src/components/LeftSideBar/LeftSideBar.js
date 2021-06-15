@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import { NavLink } from "react-router-dom";
 import CreateProjectModal from "../CreateProjectModal/CreateProjectModal";
 import { apis, axios } from "../../services";
-import {setUserDetails} from "../../redux/actions"
+import { setUserDetails } from "../../redux/actions";
 import { connect } from "react-redux";
 import Logo from "../../assets/logo.png";
 
@@ -32,7 +32,7 @@ const LeftSideBar = (props) => {
     setIsJoining(true);
     try {
       const res = await axios.post(apis.JOIN_PROJECT, { joinId: joinCode });
-      console.log("resss", res)
+      console.log("resss", res);
       if (res.data.status) {
         const oldUserDetails = props.Auth?.userdetails;
         oldUserDetails.projectIds = [
@@ -106,7 +106,9 @@ const LeftSideBar = (props) => {
             >
               <div className={classes.ProjectNameBox}>
                 <img
-                  src={item?.projectPicture?.length ? item.projectPicture : Logo}
+                  src={
+                    item?.projectPicture?.length ? item.projectPicture : Logo
+                  }
                   alt=""
                 />
                 <div className={classes.ProjectNameSection}>
@@ -125,4 +127,4 @@ const mapStateToProps = (state) => {
   return { Auth: state.Auth };
 };
 
-export default connect(mapStateToProps, {setUserDetails})(LeftSideBar);
+export default connect(mapStateToProps, { setUserDetails })(LeftSideBar);

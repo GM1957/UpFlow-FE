@@ -49,7 +49,7 @@ class SignupModal extends Component {
         username: this.state.email,
         password: this.state.password,
         attributes: {
-          email: this.state.email
+          email: this.state.email,
         },
       });
       toast.success("👻 Signup successful please check your mail-box");

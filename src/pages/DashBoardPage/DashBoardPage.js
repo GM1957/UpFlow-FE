@@ -9,7 +9,7 @@ const DashBoardPage = (props) => {
 
   return (
     <Layout>
-      <KanbanTable projectId={projectId}/>
+      <KanbanTable projectId={projectId} />
     </Layout>
   );
 };

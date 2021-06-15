@@ -10,8 +10,7 @@ const ShowTaskModal = (props) => {
       <Modal>
         <div className={classes.ModalDesign}>
           <p>
-            Title:{" "}
-            <strong>{props.Task.taskTitle}</strong>
+            Title: <strong>{props.Task.taskTitle}</strong>
           </p>
           <p>
             Description:{" "}

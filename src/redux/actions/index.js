@@ -5,5 +5,4 @@ import {
   setPartialDetails,
 } from "./authActions";
 
-
 export { login, logout, setUserDetails, setPartialDetails };

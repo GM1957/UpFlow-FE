@@ -141,7 +141,7 @@ const KanbanTable = (props) => {
   return (
     <div>
       <div className={classes.KanbanHeader}>
-        <KanbanHeader Project={project}  SetProject={setProject}/>
+        <KanbanHeader Project={project} SetProject={setProject} />
       </div>
 
       <div className={classes.KanbanBody}>

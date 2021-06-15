@@ -16,9 +16,7 @@ const Layout = (props) => {
         )}
         <div
           className={
-            props.isLeftBar === false
-              ? classes.RightBoxFull
-              : classes.RightBox
+            props.isLeftBar === false ? classes.RightBoxFull : classes.RightBox
           }
         >
           {props.children}

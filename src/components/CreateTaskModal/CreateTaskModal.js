@@ -20,15 +20,15 @@ const CreateTaskModal = (props) => {
       assigneeDetails,
       assignedByDetails,
     });
-    props.CloseBtn()
+    props.CloseBtn();
   };
 
   const assigneeSelectHandler = (selected) => {
-    setAssigneeDetails(selected.value)
+    setAssigneeDetails(selected.value);
   };
 
   const assignedBySelectHandler = (selected) => {
-    setAssignedByDetails(selected.value)
+    setAssignedByDetails(selected.value);
   };
 
   useEffect(() => {

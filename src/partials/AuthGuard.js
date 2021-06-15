@@ -35,10 +35,10 @@ const AuthGuard = (props) => {
           const DBuser = await axios.get(
             apis.GET_USER +
               "/" +
-              props?.Auth?.cognitoUserInfo?.attributes?.email,
+              props?.Auth?.cognitoUserInfo?.attributes?.email
           );
           console.log("DBuser", DBuser);
-          console.log(DBuser.data.data[0].projectIds[0])
+          console.log(DBuser.data.data[0].projectIds[0]);
           props.setUserDetails(DBuser.data.data[0]);
         } catch (err) {
           console.log("failed to fetch user data", err);
@@ -59,5 +59,5 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {
   login,
-  setUserDetails
+  setUserDetails,
 })(AuthGuard);

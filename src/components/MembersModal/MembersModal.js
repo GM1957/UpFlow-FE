@@ -44,8 +44,9 @@ const MembersModal = (props) => {
           {props.Project?.teamMemberIds?.map((item, i) => (
             <div className={classes.UserCard} key={"card" + i}>
               <p>{item.email}</p>{" "}
-              {adminIds.includes(props.Auth?.cognitoUserInfo?.attributes?.sub) &&
-              !adminIds.includes(item.userId) ? (
+              {adminIds.includes(
+                props.Auth?.cognitoUserInfo?.attributes?.sub
+              ) && !adminIds.includes(item.userId) ? (
                 <div
                   className={classes.RemoveUserButton}
                   onClick={() => removeUserHandler(item.userId)}
