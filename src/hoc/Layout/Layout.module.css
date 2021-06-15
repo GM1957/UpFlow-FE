@@ -10,3 +10,8 @@
 .RightBox {
     flex: 82%;
 }
+
+.RightBoxFull {
+    flex: 100%;
+    width: 100%;
+}

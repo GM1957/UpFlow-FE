@@ -45,7 +45,7 @@ const CreateProjectModal = (props) => {
         projectName,
         projectPicture,
       });
-
+      console.log("reess",response)
       const oldUserDetails = props.Auth?.userdetails;
       oldUserDetails.projectIds = [
         ...oldUserDetails.projectIds,

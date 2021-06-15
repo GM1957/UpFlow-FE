@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
-import {NavLink} from "react-router-dom";
+import { toast } from "react-toastify";
+import { NavLink } from "react-router-dom";
 import CreateProjectModal from "../CreateProjectModal/CreateProjectModal";
-import Logo from "../../assets/logo.png";
+import { apis, axios } from "../../services";
+import {setUserDetails} from "../../redux/actions"
 import { connect } from "react-redux";
+import Logo from "../../assets/logo.png";
 
 import classes from "./LeftSideBar.module.css";
 
@@ -10,6 +13,8 @@ const LeftSideBar = (props) => {
   const [showCreateProjectModal, setShowCreateProjectModal] = useState(false);
   const [myProjects, setMyProjects] = useState([]);
   const [shouldUpdateList, setShouldUpdateList] = useState(false);
+  const [isJoining, setIsJoining] = useState(false);
+  const [joinCode, setJoinCode] = useState("");
 
   const closeCreateProjectModal = () => {
     setShowCreateProjectModal(false);
@@ -19,10 +24,36 @@ const LeftSideBar = (props) => {
     setShouldUpdateList(true);
   };
 
+  const joinProjectHandler = async () => {
+    if (joinCode.length < 8) {
+      toast.error("Unable to join the project please re-check the joining Id");
+      return;
+    }
+    setIsJoining(true);
+    try {
+      const res = await axios.post(apis.JOIN_PROJECT, { joinId: joinCode });
+      console.log("resss", res)
+      if (res.data.status) {
+        const oldUserDetails = props.Auth?.userdetails;
+        oldUserDetails.projectIds = [
+          ...oldUserDetails.projectIds,
+          { ...res.data.data },
+        ];
+        props.setUserDetails({ ...oldUserDetails });
+        toast.success("Joined the project successfully");
+      } else {
+        toast.error(
+          "Unable to join the project please re-check the joining Id"
+        );
+      }
+    } catch (err) {
+      console.log(err);
+    }
+    setIsJoining(false);
+  };
+
   useEffect(() => {
-    console.log("inside", props.Auth);
     if (props.Auth?.userdetails?.projectIds.length) {
-      console.log("inside yo");
       setMyProjects(props.Auth?.userdetails?.projectIds);
     }
   }, [props.Auth?.userdetails?.projectIds.length, shouldUpdateList]);
@@ -43,20 +74,45 @@ const LeftSideBar = (props) => {
           onClick={() => setShowCreateProjectModal(true)}
           key={"-card"}
         >
-          <i className="plus icon"></i>
+          <p>
+            <span className={classes.PlusIcon}>+ </span>Create Project
+          </p>
+        </div>
+        <br />
+        <div className={classes.JoinProject}>
+          <input
+            type="text"
+            placeholder="enter project code here"
+            onChange={(event) => setJoinCode(event.target.value)}
+          />
+          <div
+            className={classes.JoinButton}
+            onClick={() => joinProjectHandler()}
+          >
+            {isJoining ? (
+              <i className="ui active centered inline loader small"></i>
+            ) : (
+              "Join Project"
+            )}
+          </div>
         </div>
         {myProjects.map((item, i) => {
           return (
-            <NavLink activeClassName={classes.ProjectCardActive} to={"/project/"+item.projectId} exact>
-            <div className={classes.ProjectNameBox} key={i + "-card"}>
-              <img
-                src={item.projectPicture.length ? item.projectPicture : Logo}
-                alt=""
-              />
-              <div className={classes.ProjectNameSection}>
-                {item.projectName}
+            <NavLink
+              activeClassName={classes.ProjectCardActive}
+              to={"/project/" + item.projectId}
+              exact
+              key={i + "-card"}
+            >
+              <div className={classes.ProjectNameBox}>
+                <img
+                  src={item?.projectPicture?.length ? item.projectPicture : Logo}
+                  alt=""
+                />
+                <div className={classes.ProjectNameSection}>
+                  {item.projectName}
+                </div>
               </div>
-            </div>
             </NavLink>
           );
         })}
@@ -69,4 +125,4 @@ const mapStateToProps = (state) => {
   return { Auth: state.Auth };
 };
 
-export default connect(mapStateToProps, {})(LeftSideBar);
+export default connect(mapStateToProps, {setUserDetails})(LeftSideBar);

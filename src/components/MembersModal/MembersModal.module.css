@@ -1,0 +1,34 @@
+.ModalDesign {
+    padding: 13% 5%;
+    width: 500px;
+    min-height: 400px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.UserCard {
+    margin-bottom: 1%;
+    box-shadow: 0 0 4px 0 gray;
+    padding: 2% 4%;
+    display: flex;
+}
+
+.UserCard p {
+    flex: 80%;
+    margin: 0;
+}
+
+.RemoveUserButton {
+    flex: 20%;
+    background-color: #f30789;
+    color: white;
+    padding-inline: 2%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.RemoveUserButton p {
+    padding: 3% 0%;
+}
