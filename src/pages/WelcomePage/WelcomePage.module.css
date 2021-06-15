@@ -24,7 +24,7 @@
 }
 
 .RightBox {
-
+    flex: 50%;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Exo:400,700');

@@ -17,7 +17,7 @@ const WelcomePage = (props) => {
         </div>
         <div className={classes.RightBox}>
           <div className={classes.context}>
-          <p>Please Login to start working 😜</p>
+            <p>Please Login to start working 😜</p>
           </div>
 
           <div className={classes.area}>
