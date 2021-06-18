@@ -2,7 +2,7 @@ const apis = {
   BASE_LOCAL_URL: "http://localhost:3000",
   BASE_SERVER_URL:
     process.env.NODE_ENV === "production"
-      ? "https://eo5z76mcwf.execute-api.ap-south-1.amazonaws.com/prod"
+      ? "https://mqv333ndk6.execute-api.us-west-1.amazonaws.com/dev"
       : "https://mqv333ndk6.execute-api.us-west-1.amazonaws.com/dev",
 
   GET_USER: "/user", //{email_id} GET REQUEST
