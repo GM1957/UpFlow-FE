@@ -14,7 +14,7 @@ const SignupPage = (props) => {
   };
 
   return (
-    <Layout>
+    <Layout isLeftBar={false}>
       <div className={classes.SignupModal}>
         <SignupModal open={open} closed={closeHandler} />
       </div>

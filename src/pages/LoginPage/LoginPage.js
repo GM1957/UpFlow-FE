@@ -14,7 +14,7 @@ const LoginPage = (props) => {
   };
 
   return (
-    <Layout>
+    <Layout isLeftBar={false}>
       <div className={classes.LoginModal}>
         <LoginModal open={open} closed={closeHandler} />
       </div>
