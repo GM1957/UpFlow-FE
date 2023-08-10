@@ -1,5 +1,5 @@
 {
-  "homePage": "http://upflow.devrook.com",
+  "homepage": "/UpFlow-FE/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
