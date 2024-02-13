@@ -7,7 +7,7 @@ import DashBoardPage from "../pages/DashBoardPage/DashBoardPage";
 
 const RouteHandler = (props) => {
   return (
-    <BrowserRouter basename="/UpFlow-FE">
+    <BrowserRouter>
       <Switch>
         <Route path="/" component={HomePage} exact />
 
